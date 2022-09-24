@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    
+    
+    <title>This is Index Page</title>
+    <style>
+                html {
+            height: 100%;
+            }
+            body {
+            background-image: linear-gradient(#FFFFFF, rgb(10, 125, 240));}
+        table, th, td 
+      {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th, td
+      {
+        padding: 15px;
+      }
+
+      main {
+
+        display: flex;
+
+        justify-content: center;
+
+        }
+
+
+        table {
+
+        max-width: 100%;
+
+        }
+
+
+        tr:nth-child(odd) {
+
+        background-color: #eee;
+
+        }
+
+
+        th {
+
+        background-color: #555;
+
+        color: #fff;
+
+        }
+
+
+
+        th,
+
+        td {
+
+        text-align: left;
+
+        padding: 0.5em 1em;
+        }
+
+        a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:visited {
+            color: orangered;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+            }
+            a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;}
+            
+ </style>
+
+            
+    
+            
+</head>
+<body>
+    <center>
+        <p style="text-align:center;"><h1>CRUD Operations</h1></p>
+        <p style="text-align:center;"><h2>Django Web Framework</h2></p>
+        <hr/>
+        <br>
+        
+        <a href="{% url 'stinsert' %}" target="blank">Add Student Record</a><br>
+        <br>
+        
+        
+        <table border="1" style="background-color:#FFFF00">
+            <tr>
+                <th>Student Id</th>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+            </tr>
+            {% for displayst in crudst%}
+            <tr>
+                <td>{{displayst.id}}</td>
+                <td>{{displayst.stname}}</td>
+                <td>{{displayst.stemail}}</td>
+                <td>{{displayst.staddress}}</td>
+                <td>{{displayst.stmobile}}</td>
+                <td>{{displayst.stgender}}</td>
+                <td><a href="/Edit/{{displayst.id}}">edit</a></td>
+                <td><a href="/Delete/{{displayst.id}}" onclick="return confirm('Are You Sure You want to DELETE ?')">delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
